@@ -105,6 +105,7 @@ if __name__ == "__main__":
         
         if iswin(board, player1):
             winner = player1
+            display_board(board)
             print("Player 1 won the game")
             break
         else:
@@ -121,6 +122,7 @@ if __name__ == "__main__":
         
         if iswin(board, player2):
             winner = player2
+            display_board(board)
             print("Player 2 won the game")
             break
         else:
