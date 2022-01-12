@@ -49,17 +49,26 @@ def position_check(board, position):
     else:
         return False
 
+# Checks if there is any available space in the board for the game to continue
 def full_board_check(board):
     for i in range(1,10):
         if i in board:
             return False
     return True
 
-if __name__ == "__main__":
-    board = ["x"]
-    if full_board_check(board) == True:
-        print("Board is full, game over")
+def stop_cont():
+    stop_cont = input("Do you want to continue this game or stop playing?(Y/N): ")
+    stop_cont = stop_cont.upper()
+    if stop_cont == "Y":
+        return True
     else:
-        print("The board is still available")
+        return False
+
+if __name__ == "__main__":
+    board = [0,1,2,3,4,5,6,7,8,9]
+    if stop_cont():
+        print("Ok lets continue the game")
+    else:
+        print("Ok, thank you for your time")
     
     
