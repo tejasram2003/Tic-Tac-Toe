@@ -7,6 +7,7 @@ def display_board(board):
     print(board[4],"|",board[5],"|",board[6])
     print("-"*11)
     print(board[7],"|",board[8],"|",board[9])
+    print(" ")
 
 # Recieves user input for Player1 and assigns Player2 based on Player1 input,
 # Returns the tuple of Player choices
@@ -30,4 +31,5 @@ if __name__ == "__main__":
     board = [0,1,2,3,4,5,6,7,8,9]
     board = place_marker(board, "X", 6)
     display_board(board)
-    
+    board = place_marker(board, "O", 4)
+    display_board(board)
