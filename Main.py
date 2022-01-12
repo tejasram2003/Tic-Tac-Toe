@@ -22,6 +22,12 @@ def player_input():
 
     return (player1_choice, player2_choice)
 
+def place_marker(board, marker, position):
+    board[position] = marker
+    return board
+    
 if __name__ == "__main__":
     board = [0,1,2,3,4,5,6,7,8,9]
+    board = place_marker(board, "X", 6)
+    display_board(board)
     
