@@ -23,13 +23,18 @@ def player_input():
 
     return (player1_choice, player2_choice)
 
+# Takes in the position and marks the marker in that position
 def place_marker(board, marker, position):
     board[position] = marker
     return board
+
+# Picks out a user randomly to go first
+def toss():
+    import random
+    from random import randint
+    toss = random.randint(1,2)
+    return toss
+
     
 if __name__ == "__main__":
-    board = [0,1,2,3,4,5,6,7,8,9]
-    board = place_marker(board, "X", 6)
-    display_board(board)
-    board = place_marker(board, "O", 4)
-    display_board(board)
+   pass
