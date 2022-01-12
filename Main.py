@@ -42,8 +42,18 @@ def user_position():
         position = input("Please enter a valid input(1-9): ")
     return int(position)
 
+def position_check(board, position):
+    if board[position] in [1,2,3,4,5,6,7,8,9]:
+        return True
+    else:
+        return False
+
 if __name__ == "__main__":
     board = [0,1,2,3,4,5,6,7,8,9]
     position = user_position()
-    board = place_marker(board, "X", position)
-    display_board(board)
+    if position_check(board,position):
+        place_marker(board, "X", position)
+        display_board(board)
+    else:
+        print("Sorry position not available")
+    
