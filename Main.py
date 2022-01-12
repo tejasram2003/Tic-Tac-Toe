@@ -35,6 +35,15 @@ def toss():
     toss = random.randint(1,2)
     return toss
 
-    
+# Getting user input for position
+def user_position():
+    position = input("Define your next move(1-9): ")
+    while int(position) not in range (1,10):
+        position = input("Please enter a valid input(1-9): ")
+    return int(position)
+
 if __name__ == "__main__":
-   pass
+    board = [0,1,2,3,4,5,6,7,8,9]
+    position = user_position()
+    board = place_marker(board, "X", position)
+    display_board(board)
