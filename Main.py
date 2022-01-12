@@ -42,18 +42,24 @@ def user_position():
         position = input("Please enter a valid input(1-9): ")
     return int(position)
 
+# Checks if the given position is available or is already taken
 def position_check(board, position):
     if board[position] in [1,2,3,4,5,6,7,8,9]:
         return True
     else:
         return False
 
+def full_board_check(board):
+    for i in range(1,10):
+        if i in board:
+            return False
+    return True
+
 if __name__ == "__main__":
-    board = [0,1,2,3,4,5,6,7,8,9]
-    position = user_position()
-    if position_check(board,position):
-        place_marker(board, "X", position)
-        display_board(board)
+    board = ["x"]
+    if full_board_check(board) == True:
+        print("Board is full, game over")
     else:
-        print("Sorry position not available")
+        print("The board is still available")
+    
     
