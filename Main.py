@@ -83,9 +83,9 @@ def iswin(board,player):
         return False
 
 # Asks the user if they want to continue playing or stop the game
-def isreplay():
+def is_replay():
     isreplay = input("Do you want to continue this game or stop playing?(Y/N): ")
-    isreplay = iswin.upper()
+    isreplay = isreplay.upper()
     while isreplay not in ["Y","N"]:
         isreplay = input("Please enter a valid input (only Y/N): ")
     if isreplay == "Y":
@@ -93,51 +93,56 @@ def isreplay():
     else:
         return False
 
-if __name__ == "__main__":
-    board = [0,1,2,3,4,5,6,7,8,9]
-    player1, player2 = player_input()
-    while True:
-        print("The current board is: ")
-        display_board(board)
+if __name__ == "__main__":    
+    isreplay = True
+    while isreplay == True:
+        board = [0,1,2,3,4,5,6,7,8,9]
+        player1, player2 = player_input()
+        while True:
+            print("The current board is: ")
+            display_board(board)
 
-        print("Player 1 turn: ")
-        player1_position = user_position()
-        if is_postition_available(board, player1_position):
-            board = place_marker(board, player1, player1_position)
-        else:
-            print("Sorry, postition not available")
+            print("Player 1 turn: ")
             player1_position = user_position()
-        
-        if iswin(board, player1):
-            display_board(board)
-            print("Player 1 won the game")
-            break
-        elif is_board_full(board):
-            print("The game ended in a draw")
-            break
-        else:
-            print("The current board is: ")
-            display_board(board)
+            if is_postition_available(board, player1_position):
+                board = place_marker(board, player1, player1_position)
+            else:
+                print("Sorry, postition not available")
+                player1_position = user_position()
+            
+            if iswin(board, player1):
+                display_board(board)
+                print("Player 1 won the game")
+                break
+            elif is_board_full(board):
+                print("The game ended in a draw")
+                break
+            else:
+                print("The current board is: ")
+                display_board(board)
 
-        print("Player 2 turn: ")
-        player2_position = user_position()
-        if is_postition_available(board, player2_position):
-            board = place_marker(board, player2, player2_position)
-        else:
-            print("Sorry, postition not available")
+            print("Player 2 turn: ")
             player2_position = user_position()
-        
-        if iswin(board, player2):
-            display_board(board)
-            print("Player 2 won the game")
-            break
-        elif is_board_full(board):
-            print("The game ended in a draw")
-            break
-        else:
-            print("The current board is: ")
-            display_board(board)
+            if is_postition_available(board, player2_position):
+                board = place_marker(board, player2, player2_position)
+            else:
+                print("Sorry, postition not available")
+                player2_position = user_position()
+            
+            if iswin(board, player2):
+                display_board(board)
+                print("Player 2 won the game")
+                break
+            elif is_board_full(board):
+                print("The game ended in a draw")
+                break
+            else:
+                print("The current board is: ")
+                display_board(board)
 
+        isreplay = is_replay()
+    else:
+        print("Thank you for your time!")
         
        
 
