@@ -38,7 +38,12 @@ def toss():
 # Getting user input for position
 def user_position():
     position = input("Define your next move(1-9): ")
-    while int(position) not in range (1,10):
+    while True:
+        if position.isdigit():
+            position = int(position)
+            if position in range (1,10):
+                break
+
         position = input("Please enter a valid input(1-9): ")
     return int(position)
 
@@ -91,7 +96,7 @@ def isreplay():
 if __name__ == "__main__":
     board = [0,1,2,3,4,5,6,7,8,9]
     player1, player2 = player_input()
-    while not is_board_full(board):
+    while True:
         print("The current board is: ")
         display_board(board)
 
@@ -104,9 +109,11 @@ if __name__ == "__main__":
             player1_position = user_position()
         
         if iswin(board, player1):
-            winner = player1
             display_board(board)
             print("Player 1 won the game")
+            break
+        elif is_board_full(board):
+            print("The game ended in a draw")
             break
         else:
             print("The current board is: ")
@@ -121,17 +128,18 @@ if __name__ == "__main__":
             player2_position = user_position()
         
         if iswin(board, player2):
-            winner = player2
             display_board(board)
             print("Player 2 won the game")
+            break
+        elif is_board_full(board):
+            print("The game ended in a draw")
             break
         else:
             print("The current board is: ")
             display_board(board)
 
         
-    else:
-        print("The game ended in a draw")    
+       
 
     
     
